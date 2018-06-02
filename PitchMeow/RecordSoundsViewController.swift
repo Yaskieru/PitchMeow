@@ -12,6 +12,7 @@ import AVFoundation
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!
+    var recordedAudioURL: URL!
 
     @IBOutlet weak var labelRecord: UILabel!
     @IBOutlet weak var recordOutlet: UIButton!
@@ -47,6 +48,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
+        
     }
     
     @IBAction func stopButton(_ sender: Any) {
@@ -59,7 +61,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("finished recording")
+        if flag {
+             performSegue(withIdentifier: "stopButton", sender: audioRecorder.url)
+        } else {
+            print("Recording not successful :(")
+        }
+       
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stopButton"{
+            let playSoundsVC = segue.destination as! PlaySoundViewController
+            playSoundsVC.recordedAudioURL = recordedAudioURL
+        }
     }
 
 }
