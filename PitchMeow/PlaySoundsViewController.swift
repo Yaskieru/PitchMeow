@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PlaySoundViewController: UIViewController {
+class PlaySoundsViewController: UIViewController {
     
     // MARK: Outlets
     
@@ -61,8 +61,6 @@ class PlaySoundViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
-        print("recorded URL @ playsoundController")
-        print(recordedAudioURL)
         
         // Do any additional setup after loading the view.
     }

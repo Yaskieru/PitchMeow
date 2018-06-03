@@ -15,15 +15,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var recordedAudioURL: URL!
 
     @IBOutlet weak var labelRecord: UILabel!
-    @IBOutlet weak var recordOutlet: UIButton!
-    @IBOutlet weak var StopOutlet: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     
     enum RecordingState { case recording, notRecording }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //StopOutlet.isEnabled = false
         configRecord(.notRecording)
     }
     
@@ -34,11 +33,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func configRecord(_ recordState: RecordingState) {
         switch(recordState) {
         case .recording:
-            recordOutlet.isEnabled = false
-            StopOutlet.isEnabled = true
+            recordButton.isEnabled = false
+            stopButton.isEnabled = true
         case .notRecording:
-            recordOutlet.isEnabled = true
-            StopOutlet.isEnabled = false
+            recordButton.isEnabled = true
+            stopButton.isEnabled = false
         }
     }
     
@@ -81,7 +80,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopButton" {
-            let playSoundsVC = segue.destination as! PlaySoundViewController
+            let playSoundsVC = segue.destination as! PlaySoundsViewController
             let recordedAudioURL = sender as! URL
             playSoundsVC.recordedAudioURL = recordedAudioURL
         }

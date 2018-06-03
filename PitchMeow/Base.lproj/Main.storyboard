@@ -60,9 +60,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="0l3-jp-kq7"/>
                     <connections>
-                        <outlet property="StopOutlet" destination="OI5-0i-EZZ" id="i23-sz-NDJ"/>
                         <outlet property="labelRecord" destination="yOO-cz-9jZ" id="QZk-uX-RYj"/>
-                        <outlet property="recordOutlet" destination="Rvh-bf-gH8" id="fTs-6k-cZl"/>
+                        <outlet property="recordButton" destination="Rvh-bf-gH8" id="fTs-6k-cZl"/>
+                        <outlet property="stopButton" destination="OI5-0i-EZZ" id="i23-sz-NDJ"/>
                         <segue destination="4HC-ZZ-HBx" kind="show" identifier="stopButton" id="4KX-XU-TMm"/>
                     </connections>
                 </viewController>
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="33.423913043478265"/>
         </scene>
-        <!--Play Sound View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="k4L-wR-oVz">
             <objects>
-                <viewController id="4HC-ZZ-HBx" customClass="PlaySoundViewController" customModule="PitchMeow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4HC-ZZ-HBx" customClass="PlaySoundsViewController" customModule="PitchMeow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VVp-fT-xrq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
